@@ -11,6 +11,8 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
@@ -34,7 +36,9 @@ public class ModItems {
     }
 
     // Por convencion los nombres de los Item tienen que estar siempre en minusculas
-    public static final Item LUCIA_SWORD = register("espada_lucia",Item::new, new Item.Settings().sword(ToolMaterial.NETHERITE, (float) +64, (float) -2)); //no se jajaj pero a jesus lo joden rapidito
+    public static final ToolMaterial LUCINITA = new ToolMaterial(BlockTags.INCORRECT_FOR_NETHERITE_TOOL, 2031, 9.0F, 4.0F, 15, ItemTags.NETHERITE_TOOL_MATERIALS); // TODO: Cambiar el itemTag por el del Lucinita
+    public static final Item LUCIA_SWORD = register("espada_lucia",Item::new, new Item.Settings().sword(LUCINITA, (float) +64, (float) -2)); //no se jajaj pero a jesus lo joden rapidito
+    //no se jajaj pero a jesus lo joden rapidito
     //public static final Item SUSPICIOUS_SUBSTANCE = register("suspicious_substance", Item::new, new Item.Settings());
 
 
@@ -48,6 +52,7 @@ public class ModItems {
 
     public static void initialize() {
         Registry.register(Registries.ITEM_GROUP, CUSTOM_ITEM_GROUP_KEY, CUSTOM_ITEM_GROUP);
+
 
         //  ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register((itemGroup) -> itemGroup.add(ModItems.SUSPICIOUS_SUBSTANCE));
         ItemGroupEvents.modifyEntriesEvent(CUSTOM_ITEM_GROUP_KEY).register((itemGroup) -> itemGroup.add(ModItems.LUCIA_SWORD));
