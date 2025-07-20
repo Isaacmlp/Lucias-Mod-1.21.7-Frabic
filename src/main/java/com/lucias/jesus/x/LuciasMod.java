@@ -1,5 +1,6 @@
 package com.lucias.jesus.x;
 
+import ModBlocks.ModBlocks;
 import ModItems.ModItems;
 import net.fabricmc.api.ModInitializer;
 
@@ -22,5 +23,6 @@ public class LuciasMod implements ModInitializer {
 
 		LOGGER.info("Hello Fabric world!");
 		ModItems.initialize();
+		ModBlocks.initialize();
 	}
 }

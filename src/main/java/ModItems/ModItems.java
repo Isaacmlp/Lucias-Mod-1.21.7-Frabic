@@ -43,7 +43,7 @@ public class ModItems {
 
 
     //Create Item Group
-    public static final RegistryKey<ItemGroup> CUSTOM_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(LuciasMod.MOD_ID, "lucias_mod"));
+    public static final RegistryKey<ItemGroup> CUSTOM_ITEM_GROUP_KEY_LUCIA_MOD = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(LuciasMod.MOD_ID, "lucias_mod"));
     public static final ItemGroup CUSTOM_ITEM_GROUP = FabricItemGroup.builder()
             .icon(() -> new ItemStack(ModItems.LUCIA_SWORD))
             .displayName(Text.translatable("lucias_mod"))
@@ -51,11 +51,11 @@ public class ModItems {
 
 
     public static void initialize() {
-        Registry.register(Registries.ITEM_GROUP, CUSTOM_ITEM_GROUP_KEY, CUSTOM_ITEM_GROUP);
+        Registry.register(Registries.ITEM_GROUP, CUSTOM_ITEM_GROUP_KEY_LUCIA_MOD, CUSTOM_ITEM_GROUP);
 
 
         //  ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register((itemGroup) -> itemGroup.add(ModItems.SUSPICIOUS_SUBSTANCE));
-        ItemGroupEvents.modifyEntriesEvent(CUSTOM_ITEM_GROUP_KEY).register((itemGroup) -> itemGroup.add(ModItems.LUCIA_SWORD));
+        ItemGroupEvents.modifyEntriesEvent(CUSTOM_ITEM_GROUP_KEY_LUCIA_MOD).register((itemGroup) -> itemGroup.add(ModItems.LUCIA_SWORD));
 
     }
 }
